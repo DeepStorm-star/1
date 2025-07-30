@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Anniversary ❤️</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: rgb(190, 25, 108);
+      text-shadow: 1px 1px 4px rgb(199, 198, 198);
+    }
+
+    .slideshow {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .overlay {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    #days {
+      font-size: 4em;
+      margin: 20px 0;
+      color: #ffd6e0;
+    }
+
+    .message {
+      font-size: 1.8em;
+      margin-top: 10px;
+    }
+
+    .anniversary {
+      font-size: 2.5em;
+      color: #ffc2d1;
+      margin-top: 20px;
+      animation: glow 1s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ffb3c1; }
+      to   { text-shadow: 0 0 20px #ffffff; }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slideshow Background -->
+  <div class="slideshow">
+    <img src="1.jpg" class="slide active">
+    <img src="2.jpg" class="slide">
+    <img src="3.jpg" class="slide">
+    <img src="4.jpg" class="slide">
+    <img src="5.jpg" class="slide">
+    <img src="6.jpg" class="slide">
+    <img src="7.jpg" class="slide">
+    <img src="8.jpg" class="slide">
+    <!-- Add more photos as needed -->
+  </div>
+
+  <!-- Overlay Text -->
+  <div class="overlay">
+    <h1>Hong ❤️ Nina</h1>
+    <div id="days">0</div>
+    <div class="message">Every moment with you is a blessing. I love you more every day. Khrpp jaiii barttt 💖</div>
+    <div id="anniv" class="anniversary"></div>
+  </div>
+
+  <!-- JavaScript for slideshow & date -->
+  <script>
+    // Days together
+    const start = new Date("2024-05-01");
+    const now = new Date();
+    const days = Math.floor((now - start) / (1000 * 60 * 60 * 24));
+    document.getElementById("days").innerText = days + " Days";
+
+    // Anniversary message
+    if (now.getMonth() === 6 && now.getDate() === 31) {
+      document.getElementById("anniv").innerText = "🎉 Happy Anniversary! 🎉";
+    }
+
+    // Slideshow Logic
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000); // 4 seconds per slide
+  </script>
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="https://deepstorm-star.github.io/1/Ed%20Sheeran%20-%20Perfect.mp3" type="audio/mpeg">
+  </audio>
+
+
+
+</body>
+</html>
