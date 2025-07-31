@@ -89,29 +89,64 @@
 
     h1 {
       font-size: 3em;
+      opacity: 0;
+      animation: slideFadeIn 1.2s ease-out forwards;
     }
 
     #days {
       font-size: 4em;
       margin: 20px 0;
       color: #ffd6e0;
+      opacity: 0;
+      animation: popIn 1s ease-out 1.2s forwards;
     }
 
     .message {
       font-size: 1.8em;
       margin-top: 10px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in 2.3s forwards;
     }
 
     .anniversary {
       font-size: 2.5em;
       color: #ffc2d1;
       margin-top: 20px;
-      animation: glow 1s infinite alternate;
+      animation: glow 1s infinite alternate, fadeIn 1.5s ease-in 3.5s forwards;
+      opacity: 0;
     }
 
     @keyframes glow {
       from { text-shadow: 0 0 10px #ffb3c1; }
       to   { text-shadow: 0 0 20px #ffffff; }
+    }
+
+    @keyframes slideFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
 
     #tap-hint {
@@ -159,7 +194,7 @@
   <div class="overlay" id="mainOverlay">
     <h1>Hong ❤️ Nina</h1>
     <div id="days">0</div>
-    <div class="message">Every moment with you is a blessing. I love you more every day. Khrpp jaiii barttt 💖</div>
+    <div class="message">Every moment with you is a blessing. I love you more every day. Khrpp jaiii barttt t khao ma civit bong . forever Nina. 💖</div>
     <div id="anniv" class="anniversary"></div>
   </div>
 
